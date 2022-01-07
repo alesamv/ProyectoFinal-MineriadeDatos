@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="title">
+        <h1>{% block title %} Minería de Datos {% endblock %}</h1>
+    </div>
+
+    <section class="intro-uno container mt-5">
+        <h1 class="animate__animated animate__fadeIn mx-5 px-5 my-5"> <strong>El conocimiento es poder: La minería de datos es saber más.</strong> </h1>
+        <p class="animate__animated animate__fadeInUp mx-5 px-5 text-justify fs-5">Hoy en día muchos de los procesos de un negocio se basan en datos. La minería de datos te ayuda a reconocer tendencias y patrones para que puedas mejorar tus procesos, desarrollar tu negocio y tener más éxito.</p>
+    </section>
+
+    <section class="intro my-5">
+        
+    </section>
+
+    <section class="contenido container mt-5 pt-5 mb-5 card animate__animated animate__slideInLeft">
+        <h1 class="card-title text-center " id="que-es"> ¿Qué es la Minería de Datos? </h1>
+
+        <div class="card-body">
+            <p class="text-justify fs-5">
+                El Data Mining o Minería de Datos es un conjunto de técnicas y tecnologías que permiten explorar grandes bases de datos, de manera automática o semiautomática, con el objetivo de encontrar patrones repetitivos que expliquen el comportamiento de estos datos. <br> <br>
+            </p>
+
+            <p class="text-justify fs-5">
+                A pesar de que la idea del Data Mining puede parecer una innovación tecnológica muy reciente, en realidad este término apareció en los años sesenta conjuntamente con otros conceptos como por ejemplo, el data fishing o data archeology. No obstante, no fue hasta los años ochenta cuando empezó su consolidación. <br> <br>
+
+                Su principal finalidad es explorar, mediante la utilización de distintas técnicas y tecnologías, bases de datos enormes de manera automática con el objetivo de encontrar patrones repetitivos, tendencias o reglas que expliquen el comportamiento de los datos que se han ido recopilando con el tiempo. Estos patrones pueden encontrarse utilizando estadísticas o algoritmos de búsqueda próximos a la Inteligencia Artificial y a las redes neuronales. <br> <br>
+
+                Por tanto, los datos son el medio o la base para llegar a conclusiones y transformar estos datos en información relevante, para que las empresas puedan abarcar mejoras y soluciones que les ayuden a conseguir sus objetivos. <br> <br>
+
+                Las personas que se dedican al análisis de datos a través de este sistema son conocidos como mineros o exploradores de datos, estos intentan descubrir patrones en medio de enormes cantidades de datos. Su intención es la de aportar información valiosa a las empresas para así, ayudarlas en la toma de decisiones futuras. Pero debemos tener claro que la elección del mejor algoritmo para una tarea analítica específica es un gran desafío, ya que podemos encontrar muchos patrones distintos, y además, dependerá de los problemas a resolver. Estos pueden ser la clasificación, regresión, segmentación, asociación y análisis de secuencias. <br> <br>
+            </p>
+        </div>
+        
+    </section>
+    
+    <div class="title container pt-5 mt-5">
+       <h3>Algoritmos</h3>
+        <hr> 
+    </div>
+    
+    <section class="container mb-5 w-50">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="AnalisisExploratorio"><img src="{{ url_for('static', filename='img/1.png') }}" class="d-block w-100" alt="EDA"></a>
+                <!-- <div class="carousel-caption d-none d-md-block">
+                  <h2>Análisis Exploratorio de Datos</h2>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div> -->
+              </div>
+              <div class="carousel-item">
+                <a href="SeleccionCaracteristicas"><img src="{{ url_for('static', filename='img/2.png') }}" class="d-block w-100" alt="Caracteristicas"></a>
+              </div>
+              <div class="carousel-item">
+                <a href="Clusterizacion"><img src="{{ url_for('static', filename='img/3.png') }}" class="d-block w-100" alt="Clusterizacion"></a>
+              </div>
+              <div class="carousel-item">
+                <a href="ReglasAsociacion"><img src="{{ url_for('static', filename='img/4.png') }}" class="d-block w-100" alt="Asociacion">
+              </div></a>
+              <div class="carousel-item">
+                <a href="Arboles"><img src="{{ url_for('static', filename='img/5.png') }}" class="d-block w-100" alt="Arboles"></a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+
+    
+
+{% endblock %}

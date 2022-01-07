@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="container mt-5 pt-5 animate__animated animate__zoomIn">
+        <h1 class="mt-5 pt-5"> <strong>Selección de Características</strong></h1>
+        <hr>
+        <p>
+        La selección de características hace referencia al proceso de reducir las entradas para su procesamiento y análisis, o de encontrar las entradas más significativas. 
+        <br> <br>
+        La selección de características no solo mejora la calidad del modelo, sino que también hace que el proceso de modelado sea más eficiente. Si usa columnas innecesarias al generar el modelo, se necesitará más CPU y memoria durante el proceso de entrenamiento, así como más espacio de almacenamiento para el modelo completado. Incluso si los recursos no son un problema, se recomienda realizar la selección de características para identificar las mejores columnas, ya que las columnas innecesarias pueden reducir la calidad del modelo de varias formas:
+        </p>  
+
+        <ul>
+                <li>Los datos redundantes o poco relevantes hacen que resulte más difícil detectar patrones significativos.</li>
+                <li>Si el conjunto de datos es de dimensiones elevadas, la mayoría de los algoritmos de minería de datos necesitarán un conjunto de datos de aprendizaje mucho más grande.</li>
+        </ul>
+        
+        <div class="my-5">
+            <div class="card mb-5">
+                <div class="card-body">
+                    <p>Recuerda que para este paso se recomienda previamente haber realizado un <a href="AnalisisExploratorio"> <strong>Análisis Exploratorio de Datos</strong></a>. Da click sobre el link para ir directamente, si ya lo realizaste sigue con el proceso de Selección de Características.</p>
+                </div>
+              </div>
+            
+            <p>Para una selección de características contamos con dos algoritmos, selecciona uno.</p> 
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary mx-2" href="ACD">Análisis Correlacional de Datos</a>
+                <a class="btn btn-primary mx-2" href="PCA">Análisis de Componentes Principales</a>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+{% endblock %}

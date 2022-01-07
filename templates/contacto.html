@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="title">
+    <h1>{% block title %} Contacto {% endblock %}</h1>
+</div>
+
+<div class="container d-flex justify-content-around align-items-center mt-5 pt-5">
+    <div class="escudo mt-5 pt-5 mb-5 pb-5 animate__animated animate__fadeInLeft">
+        <img src="{{ url_for('static', filename='img/escudo_fi.png') }}" alt="escudo">
+    </div>
+    <div class="mt-5 pt-5 animate__animated animate__fadeInRight">
+        <h1> <strong>Proyecto Final</strong></h1>
+        <h3>Minería de Datos - Grupo 1</h3>
+        <h3> <em><strong>Alumna:</strong></em> Monroy Velázquez Alejandra Sarahí</h3>
+        <div class="d-flex">
+            <h3> <em><strong>Email:</strong></em> </h3>
+            <h3><a href="mailto:alejandra.monroy@ingenieria.unam.edu">&nbsp;alejandra.monroy@ingenieria.unam.edu</a></h3>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+
+        <div class="container mt-5 pt-5">
+                <h1 class="mt-5 pt-5"> <strong>Análisis Exploratorio de Datos </strong></h1>
+                <hr>
+                <p>
+                El análisis exploratorio de datos es un proceso de investigación en el que se usan estadísticas de resumen y herramientas gráficas para llegar a conocer los datos y comprender lo que se puede averiguar de ellos.
+                <br> <br>
+                Con el EDA, se pueden hallar anomalías en los datos, como valores atípicos u observaciones inusuales, revelar patrones, comprender posibles relaciones entre variables y generar preguntas o hipótesis interesantes que se pueden comprobar más adelante mediante métodos estadísticos más formales.
+                </p>  
+                
+                <h2 class="mt-5 pt-5">Selecciona un archivo</h2>
+                <hr>
+
+                <!-- form to upload files -->
+                <form class="my-5 pb-5" action="" method="POST" enctype="multipart/form-data">
+                        <input class="form-control my-3" type="file" name="file">
+                        <input class="btn btn-primary" type="submit" value="Upload">
+                </form>
+        </div>
+
+        <!-- Analisis Exploratorio de Datos -->
+        {% if renderizar == True %}
+                <div class="mx-5 px-5 animate__animated animate__zoomIn">
+                        <h6 class="container fst-italic">Se ha subido el archivo <strong>{{filename}} </strong> </h6>
+                        <hr class="container mb-5">
+
+                        <h3> Los primeros datos del set de datos son los siguientes: </h3>
+                        <hr>
+                        <div class="mx-4 my-4">
+                                {% for table in tables %}
+                                <!-- {{titles[loop.index]}} -->
+                                        {{ table|safe }}
+                                {% endfor %}
+                        </div>
+                        
+                </div>
+                <br> <br> <br> 
+                
+                <div class="container my-5 py-5 animate__animated animate__zoomIn">
+                        
+                        <h3> Descripción de la estructura de los datos e Identificación de datos faltantes</h3>
+                        <hr>
+
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="shape-tab" data-bs-toggle="tab" data-bs-target="#shape" type="button" role="tab" aria-controls="shape" aria-selected="true">Forma de la Matriz</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="types-tab" data-bs-toggle="tab" data-bs-target="#types" type="button" role="tab" aria-controls="types" aria-selected="false">Tipos de Datos</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="missing-tab" data-bs-toggle="tab" data-bs-target="#missing" type="button" role="tab" aria-controls="types" aria-selected="false">Datos Faltantes</button>
+                                </li>
+                                
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                                <div class="mx-5 my-5 tab-pane fade show active" id="shape" role="tabpanel" aria-labelledby="shape-tab">
+                                        <p class="mx-5 my-5"> El set de datos cuenta con <strong>{{ shape [0] }}</strong>  datos y <strong>{{ shape [1] }}</strong> columnas. </p>
+                                </div>
+                                <div class="mx-5 my-5 tab-pane fade" id="types" role="tabpanel" aria-labelledby="types-tab">
+                                        <p class="mx-5 my-5">En esta tabla se muestra cada una de las variables, junto con el tipo de cada uno. </p>
+                                        <div class="mx-4 my-4">
+                                                {% for table in tablesTypes %}
+                                                        {{ table|safe }}
+                                                {% endfor %}  
+                                        </div>
+                                        
+                                </div> 
+                                <div class="mx-5 my-5 tab-pane fade" id="missing" role="tabpanel" aria-labelledby="missing-tab">
+                                        <p class="mx-5 my-5">En esta tabla se muestra cada una de las variables, junto con el número de datos faltantes. </p>
+                                        <div class="mx-4 my-4">
+                                                {% for table in tablesMissing %}
+                                                        {{ table|safe }}
+                                                {% endfor %}
+                                        </div>
+                                </div>         
+                        </div>
+
+                        <h3> Detección de valores atípicos </h3>
+                        <hr>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="histogram-tab" data-bs-toggle="tab" data-bs-target="#histogram" type="button" role="tab" aria-controls="histogram" aria-selected="true">Distribución de variables numéricas</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume" type="button" role="tab" aria-controls="resume" aria-selected="false">Resumen estadístico de variables numéricas</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="describe-tab" data-bs-toggle="tab" data-bs-target="#describe" type="button" role="tab" aria-controls="describe" aria-selected="false">Distribución de variables categóricas</button>
+                                </li>
+                                
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="histogram" role="tabpanel" aria-labelledby="histogram-tab">
+                                        <div class="mx-5 my-5">
+                                                <ul>
+                                                        <li>Se utilizan histogramas que agrupan los números en rangos.</li>
+                                                        <li>La altura de una barra muestra cuántos números caen en ese rango.</li>
+                                                </ul>
+                                                <img src="/plotDistribucion.png" alt="Histogramas">
+                                                <div>
+                                                        <p>Qué buscar:</p>
+                                                        <ul>
+                                                                <li>Posibles valores atípicos, que pueden ser errores de medición.</li>
+                                                                <li>Límites que no tienen sentido, como valores porcentuales > 100.</li>
+                                                        </ul>
+                                                </div>
+                                        </div>    
+                                </div>
+                                <div class="tab-pane fade" id="resume" role="tabpanel" aria-labelledby="resume-tab">
+                                        <p class="mx-5 my-5">En esta tabla se muestra un resumen estadístico de las variables númericas</p>
+                                        <div class="mx-4 my-4">
+                                                {% for table in tablesResume %}
+                                                        {{ table|safe }}
+                                                {% endfor %}
+                                        </div>
+                                        
+                                        <ul class="mx-5 my-5">
+                                                <li>Se incluye un recuento, media, desviación, valor mínimo, valor máximo, percentil inferior(25%), 50% y percentil superior (75%)</li>
+                                                <li>Por defecto, el percentil 50 es lo mismo que la mediana.</li>
+                                        </ul>
+                                </div>  
+                                <div class="tab-pane fade" id="describe" role="tabpanel" aria-labelledby="describe-tab">
+                                        <div class="mx-5 my-5">
+                                                <p>En esta tabla se muestra la distribución de las variables categóricas.</p>
+                                                <ul>
+                                                        <li>Se refiere a la observación de las clases de cada columna (variable) y su frecuencia.</li>
+                                                        <li>Aquí, las gráficas ayudan para tener una idea general de las distribuciones, mientras que las estadísticas dan números reales.</li>
+                                                        <li>En esta tabla se muestra el recuento de los valores de cada variable, el número de clases únicas, la clase más frecuente y con qué frecuencia ocurre esa clase en el conjunto de datos.</li>
+                                                </ul>
+                                                <div class="mx-4 my-4">
+                                                        {% for table in tablesDescribe %}
+                                                                {{ table|safe }}
+                                                        {% endfor %}    
+                                                </div>
+                                        </div>                                        
+                                </div>         
+                        </div>
+
+                        <h3> Identificación de relaciones entre pares de variables</h3>
+                        <hr>
+                        <ul>
+                                <li>Una matriz de correlaciones es útil para analizar la relación entre las variables numéricas.</li>
+                        </ul>
+                        <div class="mx-4 my-4">
+                                {% for table in tablesCorr %}
+                                        {{ table|safe }}
+                                {% endfor %}
+                        </div>
+                        <p class="mx-5 my-5">¿Deseas visualizar un mapa de calor para identificar pares de variables? Puedes ir directamente a la sección <a href="SeleccionCaracteristicas"> <strong>Selección de Características</strong></a> para pasar a realizar el siguiente paso dentro de la mineria de datos. Ahí podrás realizar un análisis correlacional de datos, o bien, un analísis de componentes principales</p>
+                </div>
+        {% endif %}
+
+</div>
+
+{% endblock %}

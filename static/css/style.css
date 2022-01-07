@@ -1,0 +1,46 @@
+.intro {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../img/img-data.jpg);
+  /* background: url(../img/img-data.jpg); */
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  background-position: 57% 48%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.intro h1 {
+  font-size: 72px;
+  color: #ffffff;
+  font-weight: normal;
+  padding-top: 100px;
+  font-family: "Satisfy", cursive;
+  /* position: absolute; */
+}
+
+.intro p {
+  color: #bfbfbf;
+  font-size: 18px;
+  line-height: 36px;
+  width: 60%;
+  margin: auto;
+}
+
+.contenido h1 {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.table {
+  width: 50%;
+  margin: 0 auto;
+  color: #234137c2;
+}
+
+table th {
+  text-align: left;
+}
+
+.tabla-100 table {
+  width: 100%;
+}

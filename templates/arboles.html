@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 pt-5 animate__animated animate__zoomIn">
+    <h1 class="mt-5 pt-5"> <strong>Árboles de Decisión</strong></h1>
+    <hr>
+    <p>
+    Un árbol de decisión es un mapa de los posibles resultados de una serie de decisiones relacionadas. Permite que un individuo o una organización comparen posibles acciones entre sí según sus costos, probabilidades y beneficios. Se pueden usar para dirigir un intercambio de ideas informal o trazar un algoritmo que anticipe matemáticamente la mejor opción.
+    <br> <br>
+    </p>  
+    
+    <div class="my-5">
+        <div class="card mb-5">
+            <div class="card-body">
+                <p>Recuerda que para este paso se recomienda previamente haber realizado un <a href="AnalisisExploratorio"> <strong>Análisis Exploratorio de Datos</strong></a> y una <a href="SeleccionCaracteristicas"> <strong>Selección de Características</strong></a>. Da click sobre el link para ir directamente, si ya los realizaste sigue con el proceso.</p>
+            </div>
+          </div>
+        
+        <p>Para aplicar el algoritmo de arboles decisión contamos con predicción y clasificación, selecciona uno.</p> 
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary mx-2" href="Pronostico">Pronóstico</a>
+            <a class="btn btn-primary mx-2" href="Clasificacion">Clasificación</a>
+        </div>
+        
+    </div>
+    
+
+</div>
+
+{% endblock %}

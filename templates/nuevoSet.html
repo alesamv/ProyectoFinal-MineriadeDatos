@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mx-4 my-4 px-4 py-4 animate__animated animate__zoomIn">
+        <h3 class="mt-5 pt-4">El nuevo set de datos es el siguiente:</h3>
+        <hr>
+        <div class="mx-4 my-4 pb-5">
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}

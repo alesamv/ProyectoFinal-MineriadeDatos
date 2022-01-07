@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="container mt-5 pt-5 animate__animated animate__zoomIn">
+        <h1 class="mt-5 pt-5"> <strong>Clusterización</strong></h1>
+        <hr>
+        <p>
+        Clustering es una técnica utilizada en minería de datos (dentro del área de la Inteligencia Artificial) para identificar de forma automática agrupaciones (clústeres) de elementos de acuerdo a una medida de similitud entre ellos. Esta técnica también se conoce como segmentación.
+        <br> <br>
+        En el área del Business Intelligence, la técnica de clustering puede ser utilizada para organizar diferentes tipos de datos tales como productos, clientes o tiendas.
+        </p>  
+        
+        <div class="my-5">
+            <div class="card mb-5">
+                <div class="card-body">
+                    <p>Recuerda que para este paso se recomienda previamente haber realizado un <a href="AnalisisExploratorio"> <strong>Análisis Exploratorio de Datos</strong></a> y una <a href="SeleccionCaracteristicas"> <strong>Selección de Características</strong></a>. Da click sobre el link para ir directamente, si ya los realizaste sigue con el proceso de Clusterización.</p>
+                </div>
+              </div>
+            
+            <p>Para realizar clustering contamos con dos algoritmos, selecciona uno.</p> 
+            <div class="d-flex justify-content-center">
+                <a class="btn btn-primary mx-2" href="Jerarquico">Clustering Jerárquico Ascendente</a>
+                <a class="btn btn-primary mx-2" href="Particional">Clustering Particional K-means</a>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+{% endblock %}

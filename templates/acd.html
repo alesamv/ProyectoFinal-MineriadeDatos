@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <div class="mt-5 pt-5">
+        <div class="container">
+            <h1 class="mt-5 pt-5"> <strong>Análisis Correlacional de Datos</strong></h1>
+            <hr>
+            <p> El análisis de correlación consiste en un procedimiento estadístico para determinar si dos variables están relacionadas o no. El resultado del análisis es un coeficiente de correlación  que puede tomar valores entre <strong>-1</strong> y <strong>+1</strong>. El signo indica el  tipo de correlación entre las dos variables.</p>
+
+            <ul>
+                <li>Un signo positivo indica que existe una relación positiva entre las dos variables; es decir, cuando la magnitud de una incrementa, la otra también.</li>
+                <li>Un signo negativo  indica que existe una relación negativa entre las dos variables. Mientras los valores de una incrementan, los de la segunda variable disminuyen.</li>
+                <li>Si dos variables son independientes, el coeficiente de correlación es de magnitud cero </li>
+            </ul>    
+        </div>
+               
+        <br> <br>
+        
+        <div class="container">
+            <h2>Selecciona un archivo</h2>
+            <hr>
+
+            <!-- form to upload files -->
+            <form class="my-5 pb-5" action="" method="POST" enctype="multipart/form-data">
+                    <input class="form-control my-3" type="file" name="file">
+                    <input class="btn btn-primary" type="submit" value="Upload">
+            </form>    
+        </div>
+
+        {% if renderizar == True %}
+        <div class="mx-5 px-5 animate__animated animate__zoomIn">
+            <div class="container">
+                <h6 class="fst-italic">Se ha subido el archivo <strong>{{filename}} </strong> </h6>
+                <hr>
+
+                <h3 class="pt-5"> Forma de la matriz </h3>
+                <hr>
+            
+                <p class="mx-5 my-5"> El set de datos cuenta con <strong>{{ shape [0] }}</strong>  datos y <strong>{{ shape [1] }}</strong> columnas. </p>
+
+                <!-- <h3> Los primeros datos del set de datos son los siguientes: </h3>
+                <hr> -->
+            </div>
+                
+            <!-- <div class="mx-4 my-4 pb-5">
+                    {% for table in tables %}
+                            {{ table|safe }}
+                    {% endfor %}
+            </div> -->
+
+            <div class="container">
+                <h3> Identificación de relaciones entre pares de variables </h3>
+                <hr>
+                <p>Una matriz de correlaciones es útil para analizar la relación entre las variables numéricas</p>
+                <div class="mx-4 my-4 pb-5">
+                    {% for table in tablesCorr %}
+                                {{ table|safe }}
+                    {% endfor %}
+                </div>
+
+                <p>La intensidad del color es proporcional a los valores de los coeficientes de correlación.</p>
+                <img src="plotCorrelacion.png" alt="HeatMap">
+            </div>
+        </div>
+
+        <div class="container">
+            <h3> Variables a eliminar </h3>
+            <hr>
+            <form class="my-5 pb-5" action="" method="POST" enctype="multipart/form-data">
+                <label for="variables">Ingresa las variables separadas con comas y sin espacios: </label>
+                <input class="form-control" type="text" id="variables" name="variables" /><br>
+                
+                <input class="btn btn-primary" type="submit" value="Enviar">
+            </form>    
+        </div>
+        {% endif %}
+        
+        
+    </div>
+</div>
+
+
+{% endblock %}

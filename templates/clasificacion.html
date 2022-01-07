@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5 pt-5"> <strong>Clasificación</strong></h1>
+    <hr>
+    <p>Uno de los objetivos de la minería de datos es la clasificación, la cual tiene como fin clasificar una variable dentro de una de las categorías de una clase. </p>
+
+    <div>
+        <h2>Selección de archivo y parámetros</h2>
+        <hr>
+
+        <!-- form to upload files -->
+        <form class="my-5 pb-5" action="" method="POST" enctype="multipart/form-data">
+
+            <input class="form-control mb-3" type="file" name="file">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Variables Predictoras (Ingresa separadas por comas y sin espacios): </span>
+                <input class="form-control" type="text" id="predict" name="predict" /><br>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Ingresa los valores de las Variables Predictoras (Ingresa separadas por comas y sin espacios): </span>
+                <input class="form-control" type="text" id="valores" name="valores" /><br>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Variable Clase: </span>
+                <input class="form-control" type="text" id="pronostic" name="pronostic" /><br>
+            </div>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Tamaño del test (%):</span> 
+                <input class="form-control" type="text" id="test" name="test" /><br>
+            </div>
+            
+            <legend>Parámetros para el algoritmo del árbol de decisión</legend>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">La profundidad máxima del árbol: </span>
+                <input class="form-control" type="text" id="depth" name="depth" /><br>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">El número mínimo de muestras necesarias para dividir un nodo interno: </span>
+                <input class="form-control" type="text" id="samples-split" name="samples-split" /><br>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">El número mínimo de muestras necesarias para estar en un nodo hoja: </span>
+                <input class="form-control" type="text" id="samples-leaf" name="samples-leaf" /><br>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Upload">
+
+        </form> 
+    
+    </div>
+
+    {% if renderizar == True %}
+    
+    <div class="animate__animated animate__zoomIn">
+        <h6 class="fst-italic">Se ha subido el archivo <strong>{{filename}} </strong> </h6>
+        <hr class="mb-5">
+
+        <h3>El algoritmo ha sido entrenado</h3>
+        <hr>
+
+        <p>El <strong>criterio</strong> es: {{criterio}}</p>
+        <p>La <strong>exactitud</strong> es: {{exactitud}}</p>
+
+        <p>La <strong>matriz de clasificación</strong> es: </p>
+        <div class="mx-4 my-4 pb-5">
+            {% for table in tableMatriz %}
+                    {{ table|safe }}
+            {% endfor %}
+        </div>
+
+        <p>La <strong>importancia</strong> de las variables es: </p>
+        <div class="mx-4 my-4 pb-5">
+            {% for table in tableImportancia %}
+                    {{ table|safe }}
+            {% endfor %}
+        </div>
+
+        <h3>La <strong>clasificación</strong> de <strong>{{pronostic}}</strong> es de: <strong>{{ newPronostico }}</strong> </h3>
+    </div>
+
+    {% endif %}
+
+
+</div>
+{% endblock %}
